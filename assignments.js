@@ -9,7 +9,7 @@ var assignmentsArray = [ {taskID: '1', assignmentID: '1', workerID: '1', assignm
 
 assignments.route('/')
     .get((req,res) => {
-        res.sendStatus(200)
+        res.status=200
         res.json(assignmentsArray)
     })
     .post((req,res) => {
@@ -23,7 +23,7 @@ assignments.route('/')
         
         assignmentsArray.push(assignment)
     
-        res.sendStatus(200)
+        res.status=200
         res.json(assignment)
     })
 
@@ -34,7 +34,7 @@ assignments.route('/:assignmentID')
         if (i==-1) res.sendStatus(404)
         else{
             var assignment = assignmentsArray[i]
-            res.sendStatus(200)
+            res.status=200
             res.json(assignment)
         }
     })
@@ -46,7 +46,7 @@ assignments.route('/:assignmentID')
             if (req.body.workerID) assignmentsArray[i].workerID = req.body.workerID
             if (req.body.assignmentResult) assignmentsArray[i].assignmentResult = req.body.assignmentResult
             var assignment = assignmentsArray[i]
-            res.sendStatus(200)
+            res.status=200
             res.json(assignment)
         } 
     })
@@ -57,7 +57,7 @@ assignments.route('/:assignmentID')
         else{
             var deleted = assignmentsArray[i]
             assignmentsArray.splice(i,1)
-            res.sendStatus(200)
+            res.status=200
             res.json(deleted)
         }
     })
